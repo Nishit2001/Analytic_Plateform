@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Prediction</title>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+    body{
+    background-image: url({{url_for('static',filename='img/bg.png')}});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attached: fixed;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    text-decoration: none;
+    }
+
+    .logo{
+    margin: 20px 0 0 70px;
+    }
+
+    .container{
+    margin: 110px 0 0 80px;
+    width: 600px;
+    height: 470px;
+    }
+
+    .title{
+    color: #5cfff3;
+    font-size: 48px;
+    }
+
+    .sub-title{
+    font-size: 22px;
+    }
+
+    .form{
+    margin-top:20px;
+    }
+
+    input{
+    margin-right: 20px;
+    width: 175px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    padding-left:15px;
+    cursor: pointer;
+    margin-top: 15px;
+    height: 50px;
+    border: 2px solid #5cfff3;
+    background-size: 300% 100%;
+    box-shadow: 0 2px 15px 0 rgba(49, 196, 190, 0.75);
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background:Transparent;
+    }
+
+    ::placeholder{
+    color:white;
+    font-weight:500;
+    }
+
+    button{
+    width: 96%;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 25px;
+    height: 50px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    color:#091918;
+    background-image: linear-gradient(to right, #5cfff3, #7dfff5, #40b3aa);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    }
+
+    button:hover {
+    box-shadow: none;
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    }
+
+    input,button:focus {
+    outline: none;
+    }
+
+    .answer{
+    font-size:22px;
+    text-align:center;
+    }
+
+    .footer{
+    text-align:center;
+    }
+
+    .bottom-line{
+    border: none;
+    width: 30%;
+    border-top: 1px solid #5cfff3;
+    overflow: visible;
+    }
+
+    .credits{
+    display: flex;
+    justify-content:center;
+    }
+
+    .rahi{margin-top: 10px;}
+
+    .credits > div{
+    margin: 10px;
+    text-align: center;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+
+            <header>
+                <a href="http://127.0.0.1:5000/"><image class="logo" src="{{ url_for('static', filename='img/Logo.png')}}" style="width:250px;"></image></a>
+            </header>
+
+            <!-- Page Heading -->
+            <div class="container">
+                <h1 class="title">Magic happens here</h1>
+                <span class="sub-title">Enter Attributes here.</span>
+
+     <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post" class="form">
+    	<input type="text" name="experience" placeholder="attribute 1" required="required" autocomplete="off"/>
+        <input type="text" name="test_score" placeholder="attribute 2" required="required" autocomplete="off"/>
+		<input type="text" name="interview_score" placeholder="attribute 3" required="required" autocomplete="off"/>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div class="answer">
+   {{ prediction_text }}
+   </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+            <hr class="bottom-line">
+                <div class="credits">
+                   <div> <p class="copyright">Created by</p> </div>
+                   <div> <image class="rahi" src="{{ url_for('static', filename='img/rahi.png')}}" style="width: 100px;"></image> </div>
+                </div>
+            </footer>
+
+  </body>
+</html>

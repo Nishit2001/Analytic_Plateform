@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/bg.png') }}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Share Your data With Us</h1>
+              <span class="subheading">We Will Create Use For you</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <a href="/main"<button class="btn btn-primary">Regression</button></a>
+          <a href="/main1"<button class="btn btn-primary">Classification</button></a>
+          <a href="/main2"<button class="btn btn-primary">Clustering</button></a>
+          <hr>
+            <h1>Upload a file here</h1>
+
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button class='btn btn-primary' type="submit">submit</button>
+            <p>
+            {{message}}
+            </p>
+    <hr>
+
+
+
+
+          <!-- Pager -->
+          <div class="clearfix">
+          <!--  <a class="btn btn-primary float-right" href="#">Older Posts →</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
